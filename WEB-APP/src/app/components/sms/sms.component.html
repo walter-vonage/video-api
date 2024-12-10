@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Vonage SMS</h2>
+    <div>
+        <div class="">
+            <input
+                type="text"
+                [(ngModel)]="to"
+                placeholder="Destination phone..."
+                required
+            />
+            <textarea class="form-control mt-2" [(ngModel)]="message" placeholder="Your message..."></textarea>
+            <div class="mt-2">
+                <button (click)="sendSms()">Send SMS</button>
+            </div>
+        </div>
+    </div>
+</div>

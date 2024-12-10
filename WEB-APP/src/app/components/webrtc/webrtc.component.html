@@ -1,0 +1,85 @@
+<div class="container">
+    <h2>Vonage Video</h2>
+    <div>
+        <div class="d-flex justify-content-center align-items-center">
+            <input
+                type="text"
+                class="m-1"
+                [(ngModel)]="channelName"
+                placeholder="Channel Name"
+                required
+            />
+            <button class="m-1" (click)="createSession()">Create Session</button>
+        </div>
+        <div>
+            <input
+                type="text"
+                [(ngModel)]="sessionId"
+                placeholder="Session ID"
+                required
+            />
+            <div class="d-flex justify-content-center align-items-center">
+                <input
+                    type="text"
+                    class="m-1"
+                    [(ngModel)]="provider"
+                    placeholder="Provider"
+                    required
+                />
+                <input
+                    type="text"
+                    class="m-1"
+                    [(ngModel)]="applicationId"
+                    placeholder="Vonage Application ID"
+                    required
+                />
+                <input
+                    type="text"
+                    class="m-1"
+                    [(ngModel)]="openTokApiKey"
+                    placeholder="OpenTok ApiKey"
+                    required
+                />
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <input
+                type="text"
+                class="m-1"
+                [(ngModel)]="userName"
+                placeholder="User Name"
+                required
+            />
+            <button class="m-1" (click)="join('publisher')">Join as Publisher</button>
+            <button class="m-1" (click)="join('subscriber')">Join as Subscriber</button>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-center align-items-center">
+            <div class="m-2">
+                <div id="publisher"></div>
+            </div>
+            <div class="m-2">
+                <div id="subscriber"></div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div id="responseMessage"></div>
+
+    <div class="mt-4 card">
+        <div class="card-header">
+            Recordings
+        </div>
+        <div class="card-body">
+            <div *ngIf="recordings.length == 0">
+                No recordings.
+            </div>
+            <div class="mb-2" *ngFor="let item of recordings">
+                <app-row-recording [item]="item"></app-row-recording>
+            </div>
+        </div>
+    </div>
+
+</div>
